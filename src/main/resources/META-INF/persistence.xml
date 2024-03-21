@@ -15,7 +15,8 @@
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments"  value="true"/>
-            <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create로 되어있으면 기존 스키마를 삭제하고 시작할 때마다 새로운 스키마를 생성합니다.  -->
+
         </properties>
     </persistence-unit>
 
