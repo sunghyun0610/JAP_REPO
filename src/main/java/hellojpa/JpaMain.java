@@ -15,15 +15,19 @@ public class JpaMain {
         EntityTransaction tx = em.getTransaction();//JPA 는 transaction이 매우 중요하다
         tx.begin();
 
-        //code
-        Member member = new Member();
-        member.setId(2L);
-        member.setName("HelloB");
-        em.persist(member);
+        try {
+            Member member = new Member();
+            member.setId(2L);
+            member.setName("HelloB");
+            em.persist(member);
 
-        tx.commit();
+            tx.commit();
+        }catch (Exception e){
+            tx.rollback();
+        }finally {
+            em.close();//entity manger 꼭 닫아줄 것!
+        }
 
-        em.close();
         emf.close();
     }
 }

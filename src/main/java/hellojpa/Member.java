@@ -1,12 +1,16 @@
 package hellojpa;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity//이걸 넣어야지 jpa를 사용하는구나 인식함
+//@Table(name="USER") 이테이블 이름으로 맵핑
 public class Member {
     @Id
     private Long id;
+    //@Column(name = "username")// 매핑가능ㅇ
     private String name;
 //getter setter -> alt+insert
     public Long getId() {
