@@ -12,7 +12,16 @@ public class Member {
     private Long id;
     //@Column(name = "username")// 매핑가능ㅇ
     private String name;
-//getter setter -> alt+insert
+
+    public Member(){
+
+    }
+    public Member(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    //getter setter -> alt+insert
     public Long getId() {
         return id;
     }
