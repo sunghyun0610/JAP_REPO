@@ -23,6 +23,7 @@ public class JpaMain {
                 em.persist(member1);
                 em.persist(member2);
                 System.out.println("======================");
+                em.persist(member1);//persist 메소드는 새로운 엔티티 인스턴스를 영속성 컨텍스트에 추가하는 역할
 
 //                Member findMember= em.find(Member.class,101L);
 //                System.out.println("findMemeber.id = " + findMember.getId());
@@ -36,7 +37,7 @@ public class JpaMain {
 //                System.out.println("findMember.id = " + findMember.getId());
 //                System.out.println("findMember.name = " + findMember.getName()); 조회
 
-            tx.commit();
+            tx.commit(); // 트랜잭션이 커밋(commit)되는 시점에 데이터베이스에 반영됩니다.
         }catch (Exception e){
             tx.rollback();
         }finally {
