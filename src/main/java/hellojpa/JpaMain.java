@@ -40,6 +40,7 @@ public class JpaMain {
             em.close();//entity manger 꼭 닫아줄 것!
         }
         emf.close();
+
     }
 }
 
