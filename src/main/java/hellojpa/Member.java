@@ -1,40 +1,33 @@
 package hellojpa;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
+
+import java.util.Date;
 
 @Entity//이걸 넣어야지 jpa를 사용하는구나 인식함
 //@Table(name="USER") 이테이블 이름으로 맵핑
 public class Member {
-    @Id
+    @Id//PK매핑
     private Long id;
-    //@Column(name = "username")// username이라는 컬럼(열)로 매핑가능ㅇ
-    private String name;
 
-    public Member(){
+    @Column(name = "name")//@Column(name = "name")// 객체는 username인데 DB에는 name에 저장하고 싶을때
+    private String username;
 
-    }
-    public Member(Long id, String name) {
-        this.id = id;
-        this.name = name;
-    }
+    private Integer age;
 
-    //getter setter -> alt+insert
-    public Long getId() {
-        return id;
-    }
+    @Enumerated(EnumType.STRING)//DB에는 enumtype이 없으므로 @Enumerated 어노테이션 써야댐.
+    private RoleType roleType;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    @Temporal(TemporalType.TIMESTAMP)//
+    private Date createdDate;
 
-    public String getName() {
-        return name;
-    }
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date lastModifiedDate;
 
-    public void setName(String name) {
-        this.name = name;
+    @Lob//Varchar을 넘어서는 큰 컨텐츠
+    private String description;
+
+    public Member() {
+
     }
 }
