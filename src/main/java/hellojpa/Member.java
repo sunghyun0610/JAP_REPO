@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 public class Member {
     @Id
     private Long id;
-    //@Column(name = "username")// 매핑가능ㅇ
+    //@Column(name = "username")// username이라는 컬럼(열)로 매핑가능ㅇ
     private String name;
 
     public Member(){
