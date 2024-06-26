@@ -10,7 +10,7 @@ public class JpaMain {
     public static void main(String[] args) {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("hello");//데이터베이스 당 하나씩 묶여서 돌아감.
         //entityMangerFactory 만드는 순간 DB연결은 가능
-        EntityManager em = emf.createEntityManager();
+        EntityManager em = emf.createEntityManager();//공장에서 entitymanager꺼내는 코드
             //em을 자바컬렉션처럼 이해하면 좋음, 내 객체를 대신 저장해주는 것.
             EntityTransaction tx = em.getTransaction();//JPA 는 transaction이 매우 중요하다
             tx.begin();
