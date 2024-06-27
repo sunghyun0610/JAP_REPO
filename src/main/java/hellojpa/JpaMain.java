@@ -12,7 +12,7 @@ public class JpaMain {
         //entityMangerFactory 만드는 순간 DB연결은 가능
         EntityManager em = emf.createEntityManager();//공장에서 entitymanager꺼내는 코드
             //em을 자바컬렉션처럼 이해하면 좋음, 내 객체를 대신 저장해주는 것.
-            EntityTransaction tx = em.getTransaction();//JPA 는 transaction이 매우 중요하다
+            EntityTransaction tx = em.getTransaction();//JPA 는 transaction이 매우 중요하다. 트랜잭션 얻는 코드
             tx.begin();
             try {
             tx.commit(); // 트랜잭션이 커밋(commit)되는 시점에 데이터베이스에 반영됩니다.
