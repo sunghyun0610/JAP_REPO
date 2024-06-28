@@ -16,15 +16,12 @@ public class JpaMain {
             tx.begin();
             try {
                 Member member = new Member();
-                member.setId(1L);
+//                member.setId("ID_AA");
                 member.setUsername("A");
-                member.setRoleType(RoleType.USER);
 
-                member.setId(2L);
-                member.setUsername("B");
-                member.setRoleType(RoleType.ADMIN);
                 em.persist(member);
-            tx.commit(); // 트랜잭션이 커밋(commit)되는 시점에 데이터베이스에 반영됩니다.
+
+                tx.commit(); // 트랜잭션이 커밋(commit)되는 시점에 데이터베이스에 반영됩니다.
         }catch (Exception e){
             tx.rollback();
         }finally {
