@@ -15,6 +15,15 @@ public class JpaMain {
             EntityTransaction tx = em.getTransaction();//JPA 는 transaction이 매우 중요하다. 트랜잭션 얻는 코드
             tx.begin();
             try {
+                Member member = new Member();
+                member.setId(1L);
+                member.setUsername("A");
+                member.setRoleType(RoleType.USER);
+
+                member.setId(2L);
+                member.setUsername("B");
+                member.setRoleType(RoleType.ADMIN);
+                em.persist(member);
             tx.commit(); // 트랜잭션이 커밋(commit)되는 시점에 데이터베이스에 반영됩니다.
         }catch (Exception e){
             tx.rollback();
