@@ -9,14 +9,15 @@ import java.util.Date;
 public class Member {
     @Id//PK매핑= 기본키
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "MEMEBER_ID")
     private Long id;
 
-    @Column(name = "name")//@Column(name = "name")// 객체는 username인데 DB에는 name에 저장하고 싶을때
+    @Column(name = "USERNAME")//@Column(name = "name")// 객체는 username인데 DB에는 name에 저장하고 싶을때
     private String username;
 
-    public Member() {
-
-    }
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 
     public Long getId() {
         return id;
@@ -32,5 +33,13 @@ public class Member {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 }
