@@ -2,7 +2,7 @@ package hellojpa;
 
 import jakarta.persistence.*;
 
-
+import java.util.List;
 
 
 public class JpaMain {
@@ -25,9 +25,15 @@ public class JpaMain {
                 member.setTeam(team);
                 em.persist(member);
 
+                em.flush();
+                em.clear();
+
                 Member findMember= em.find(Member.class, member.getId());
-                Team findTeam = findMember.getTeam();
-                System.out.println("findTeam ="+ findTeam.getName());
+                List<Member> members = findMember.getTeam().getMembers();//반대방향으로도 객체 그래프 탐색가능. 즉 양방향 매핑 가능.
+
+                for(Member m : members){
+                    System.out.println("m = "+ m.getUsername());
+                }
 
                 tx.commit(); // 트랜잭션이 커밋(commit)되는 시점에 데이터베이스에 반영됩니다.
         }catch (Exception e){
